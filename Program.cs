@@ -163,63 +163,138 @@
 
 // ## Итоговая задача. Каталог игр
 
-using System;
-using System.Collections.Generic;
+// using System;
+// using System.Collections.Generic;
 
-class Program
-{
-    static void Main()
-    {
-        List<string> gamesList = new List<string> { "Minecraft", "Terraria", "Portal" };
+// class Program
+// {
+//     static void Main()
+//     {
+//         List<string> gamesList = new List<string> { "Minecraft", "Terraria", "Portal" };
 
-        Console.Write("Добавить игру: ");
-        string newGame = Console.ReadLine();
-        if (!string.IsNullOrWhiteSpace(newGame))
-        {
-            gamesList.Add(newGame);
-        }
+//         Console.Write("Добавить игру: ");
+//         string newGame = Console.ReadLine();
+//         if (!string.IsNullOrWhiteSpace(newGame))
+//         {
+//             gamesList.Add(newGame);
+//         }
 
-        Console.WriteLine("\nИгры:");
-        for (int i = 0; i < gamesList.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. {gamesList[i]}");
-        }
+//         Console.WriteLine("\nИгры:");
+//         for (int i = 0; i < gamesList.Count; i++)
+//         {
+//             Console.WriteLine($"{i + 1}. {gamesList[i]}");
+//         }
 
-        Dictionary<string, double> gamePrices = new Dictionary<string, double>
-        {
-            { "Minecraft", 1999.00 },
-            { "Terraria", 699.00 },
-            { "Portal", 499.00 }
-        };
+//         Dictionary<string, double> gamePrices = new Dictionary<string, double>
+//         {
+//             { "Minecraft", 1999.00 },
+//             { "Terraria", 699.00 },
+//             { "Portal", 499.00 }
+//         };
 
-        Console.Write("\nВведите игру для поиска цены: ");
-        string priceSearch = Console.ReadLine();
-        
-        if (gamePrices.TryGetValue(priceSearch, out double price))
-        {
-            Console.WriteLine($"Цена: {price:F2}");
-        }
-        else
-        {
-            Console.WriteLine("Игра не найдена.");
-        }
+//         Console.Write("\nВведите игру для поиска цены: ");
+//         string priceSearch = Console.ReadLine();
 
-        string genresString = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
-        string[] genresArray = genresString.Split(',');
-        HashSet<string> genresSet = new HashSet<string>(genresArray);
+//         if (gamePrices.TryGetValue(priceSearch, out double price))
+//         {
+//             Console.WriteLine($"Цена: {price:F2}");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Игра не найдена.");
+//         }
 
-        Console.WriteLine($"\nУникальных жанров: {genresSet.Count}");
+//         string genresString = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
+//         string[] genresArray = genresString.Split(',');
+//         HashSet<string> genresSet = new HashSet<string>(genresArray);
 
-        Console.Write("\nВведите жанр: ");
-        string genreSearch = Console.ReadLine();
-        
-        if (genresSet.Contains(genreSearch))
-        {
-            Console.WriteLine("Такой жанр есть.");
-        }
-        else
-        {
-            Console.WriteLine("Такого жанра нет.");
-        }
-    }
-}
+//         Console.WriteLine($"\nУникальных жанров: {genresSet.Count}");
+
+//         Console.Write("\nВведите жанр: ");
+//         string genreSearch = Console.ReadLine();
+
+//         if (genresSet.Contains(genreSearch))
+//         {
+//             Console.WriteLine("Такой жанр есть.");
+//         }
+//         else
+//         {
+//             Console.WriteLine("Такого жанра нет.");
+//         }
+//     }
+// }
+
+
+
+// ## Самостоятельные задания
+
+// ### ★ List<T>
+
+// using System;
+// using System.Collections.Generic;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         List<int> nums = new List<int> { 1, 2, 1, 3, 1, 4 };
+
+//         Console.Write("Какое число удалить? ");
+//         int target = int.Parse(Console.ReadLine());
+
+//         nums.RemoveAll(n => n == target);
+
+//         foreach (int n in nums) Console.Write(n + " ");
+//     }
+// }
+
+
+// ### ★★ Dictionary
+
+// using System;
+// using System.Collections.Generic;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         Dictionary<string, int> stock = new Dictionary<string, int>();
+//         stock["Яблоки"] = 10;
+//         stock["Груши"] = 5;
+
+//         Console.Write("Введите товар: ");
+//         string item = Console.ReadLine();
+
+//         if (stock.TryGetValue(item, out int count))
+//             Console.WriteLine($"Количество: {count}");
+//         else
+//             Console.WriteLine("Товар не найден");
+//     }
+// }
+
+
+// ### ★★★ Выбор коллекции
+
+// using System;
+// using System.Collections.Generic;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         List<string> readers = new List<string> { "Иван", "Мария" };
+
+//         Dictionary<string, string> books = new Dictionary<string, string>();
+//         books["Пушкин"] = "Сказки";
+
+//         HashSet<string> genres = new HashSet<string> { "Роман", "Поэма", "Роман" };
+
+//         Console.WriteLine($"Читателей: {readers.Count}");
+//         Console.WriteLine($"Книга Пушкина: {books["Пушкин"]}");
+//         Console.WriteLine($"Уникальных жанров: {genres.Count}");
+//     }
+// // }
+
+// // List — удобно хранить список читателей (можно добавлять/удалять)
+// // Dictionary — быстро искать книгу по автору
+// // HashSet — хранит только уникальные жанры 
