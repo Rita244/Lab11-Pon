@@ -159,3 +159,67 @@
 // что позволяет мгновенно находить номер по имени
 // 3. Коллекция: HashSet. Причина: он создан специально для того,
 //  чтобы хранить только уникальные вещи. Повторяющиеся теги он просто не пропустит
+
+
+// ## Итоговая задача. Каталог игр
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> gamesList = new List<string> { "Minecraft", "Terraria", "Portal" };
+
+        Console.Write("Добавить игру: ");
+        string newGame = Console.ReadLine();
+        if (!string.IsNullOrWhiteSpace(newGame))
+        {
+            gamesList.Add(newGame);
+        }
+
+        Console.WriteLine("\nИгры:");
+        for (int i = 0; i < gamesList.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {gamesList[i]}");
+        }
+
+        Dictionary<string, double> gamePrices = new Dictionary<string, double>
+        {
+            { "Minecraft", 1999.00 },
+            { "Terraria", 699.00 },
+            { "Portal", 499.00 }
+        };
+
+        Console.Write("\nВведите игру для поиска цены: ");
+        string priceSearch = Console.ReadLine();
+        
+        if (gamePrices.TryGetValue(priceSearch, out double price))
+        {
+            Console.WriteLine($"Цена: {price:F2}");
+        }
+        else
+        {
+            Console.WriteLine("Игра не найдена.");
+        }
+
+        string genresString = "RPG,Sandbox,Action,RPG,Strategy,Action,Sandbox";
+        string[] genresArray = genresString.Split(',');
+        HashSet<string> genresSet = new HashSet<string>(genresArray);
+
+        Console.WriteLine($"\nУникальных жанров: {genresSet.Count}");
+
+        Console.Write("\nВведите жанр: ");
+        string genreSearch = Console.ReadLine();
+        
+        if (genresSet.Contains(genreSearch))
+        {
+            Console.WriteLine("Такой жанр есть.");
+        }
+        else
+        {
+            Console.WriteLine("Такого жанра нет.");
+        }
+    }
+}
