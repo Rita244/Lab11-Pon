@@ -116,33 +116,46 @@
 
 // ### Часть 3. HashSet<T>
 
-using System;
-using System.Collections.Generic;
 
-class Program
-{
-    static void Main()
-    {
-        string[] input = { "C#", "Git", "C#", "SQL", "Git", "C#" };
+// using System;
+// using System.Collections.Generic;
 
-        HashSet<string> uniqueTags = new HashSet<string>();
-        
-        foreach (string item in input)
-        {
-            uniqueTags.Add(item);
-        }
+// class Program
+// {
+//     static void Main()
+//     {
+//         string[] input = { "C#", "Git", "C#", "SQL", "Git", "C#" };
+//         HashSet<string> uniqueTags = new HashSet<string>();
 
-        Console.WriteLine($"Элементов в исходном массиве: {input.Length}");
-        Console.WriteLine($"Уникальных значений (HashSet): {uniqueTags.Count}");
+//         foreach (string item in input)
+//         {
+//             uniqueTags.Add(item);
+//         }
 
-        Console.Write("Введите название технологии для проверки: ");
-        string searchTag = Console.ReadLine();
+//         Console.WriteLine($"В массиве: {input.Length}, Уникальных: {uniqueTags.Count}");
 
-        if (uniqueTags.Contains(searchTag))
-            Console.WriteLine("Такая технология есть в наборе.");
-        else
-            Console.WriteLine("Такой технологии нет в наборе.");
-            
-        HashSet<string> tags = new HashSet<string> { "C#", "Git", "C#", "SQL", "Git", "C#" };
-    }
-}
+//         Console.Write("Введите технологию: ");
+//         string searchTag = Console.ReadLine();
+
+//         if (uniqueTags.Contains(searchTag))
+//             Console.WriteLine("Есть");
+//         else
+//             Console.WriteLine("Нет");
+
+//         HashSet<string> tags = new HashSet<string> { "C#", "Git", "C#", "SQL", "Git", "C#" };
+//     }
+// }
+
+// Количество элементов меньше, потому что HashSet хранит только уникальные значения
+// При попытке добавить дубликат
+// его игнорирует и не увеличивает свой размер
+
+
+// ### Часть 4. Выбор коллекции
+
+// 1. Коллекция: List. Причина: это простой список,
+// в который легко добавлять новые товары и удалять их
+// 2. Коллекция: Dictionary. Причина: он хранит данные парами имя+номер телефона, 
+// что позволяет мгновенно находить номер по имени
+// 3. Коллекция: HashSet. Причина: он создан специально для того,
+//  чтобы хранить только уникальные вещи. Повторяющиеся теги он просто не пропустит
